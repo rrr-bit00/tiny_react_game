@@ -3,7 +3,7 @@ from pygame.locals import *
 
 
 def runpygame():
-    #initialise setting
+    #initialise
     pygame.init()
 
     #setup clock
@@ -19,11 +19,9 @@ def runpygame():
     black = (0, 0, 0)
     white = (255,255,255)
     yellow = (255,255,0)
-    red = (192, 57, 43)
-
     rect_color = (255, 255, 255)
 
-    #initialise game loop setup
+    #initialise game loop
     running = True
 
     #countdown
@@ -32,7 +30,7 @@ def runpygame():
     int_countdown = "3"
     color_change_time = None
 
-    #cheange color setup
+    #cheange color
     blue_on_off = False
 
     #averge 
@@ -41,15 +39,18 @@ def runpygame():
     #font_path
     font_path = 'NotoSansJP-VariableFont_wght.ttf'
 
+    #Rect
+    rect = pygame.Rect(150,200,500,300)
+
     while running:
         
         #update
         for event in pygame.event.get():
-            clicks = pygame.mouse.get_pressed()
-            if blue_on_off:
-                if clicks[0] or clicks[2]:
-                    blue_on_off = False
-                    ave.append((tmp_time - time) / 1000)
+            if event.type == MOUSEBUTTONDOWN:
+                if blue_on_off:
+                    if rect.collidepoint(event.pos):
+                        blue_on_off = False
+                        ave.append((tmp_time - time) / 1000)
 
             #close window
             if event.type == pygame.QUIT:
@@ -82,9 +83,15 @@ def runpygame():
         if len(ave) < 5:
             if not blue_on_off:
                 rect_color = (255,255,255)
-            
-            pygame.draw.rect(screen, rect_color, (150,200,500,300))
+                text = '青色になったらここをクリック！！'
+
+            pygame.draw.rect(screen, rect_color, rect)
             tmp_time = pygame.time.get_ticks()
+            #font
+            font_loop = pygame.font.Font(font_path, 30)
+            text_loop = font_loop.render(text, True, black)
+            text_rect = text_loop.get_rect(center=rect.center)
+            screen.blit(text_loop, text_rect)
             
             if color_change_time is None:
                 ran = random.randint(1000,5000)
@@ -96,6 +103,7 @@ def runpygame():
                 rect_color = (0,0,255)
                 time = tmp_time
                 color_change_time = None
+                text = 'クリック！！'
 
         else:
             averave = sum(ave)/len(ave)
