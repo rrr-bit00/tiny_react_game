@@ -28,3 +28,14 @@ python main.py
 # 作業が終わったら、以下で仮想環境を終了できます
 deactivate
 ```
+
+## 🔤 フォントについて
+
+日本語表示には「Noto Sans JP（Google Fonts）」を使用しています。  
+フォントファイルはリポジトリには含まれていないため、以下の手順で追加してください：
+
+1. [Noto Sans JP（Google Fonts）](https://fonts.google.com/specimen/Noto+Sans+JP) にアクセス
+2. `NotoSansJP-VariableFont_wght.ttf` をダウンロード
+3. このプロジェクトのルートディレクトリ（`tiny_react_game/`）に追加してください
+
+※ フォントが存在しない場合は、システムフォントで代替されますが、日本語の表示崩れが起こる可能性があります。
