@@ -1,3 +1,4 @@
+import os
 import pygame
 import sys
 import random
@@ -40,6 +41,8 @@ def runpygame():
 
     # font_path
     font_path = 'NotoSansJP-VariableFont_wght.ttf'
+    if not os.path.exists(font_path):
+        font_path = None  # システムフォントにフォールバック
 
     # Rect
     rect = pygame.Rect(150, 200, 500, 300)
