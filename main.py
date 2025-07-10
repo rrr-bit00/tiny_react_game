@@ -2,7 +2,6 @@ import os
 import pygame
 import sys
 import random
-import os
 from pygame.locals import MOUSEBUTTONDOWN
 
 
