@@ -2,6 +2,7 @@ import os
 import pygame
 import sys
 import random
+import os
 from pygame.locals import MOUSEBUTTONDOWN
 
 
@@ -40,9 +41,11 @@ def runpygame():
     ave = []
 
     # font_path
-    font_path = 'NotoSansJP-VariableFont_wght.ttf'
+    # スクリプトと同じディレクトリにあるフォントを使用する
+    font_path = os.path.join(os.path.dirname(__file__),
+                             'NotoSansJP-VariableFont_wght.ttf')
     if not os.path.exists(font_path):
-        font_path = None  # システムフォントにフォールバック
+        font_path = None
 
     # Rect
     rect = pygame.Rect(150, 200, 500, 300)
