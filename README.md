@@ -1,4 +1,4 @@
-# tiny_react_game
+# tiny_reaction_game
 
 ### pygameの勉強として小さなリアクションタイムの測定をするゲームを作ってみました
 
