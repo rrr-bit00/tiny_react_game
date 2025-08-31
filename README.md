@@ -25,7 +25,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 python main.py
 ```
-### 仮想環境を終了する場合
+### Windowsで仮想環境を使用する場合(venv)
 ```bash
 git clone https://github.com/rrr-bit00/tiny_react_game.git
 cd tiny_react_game
@@ -34,11 +34,11 @@ venv\Scripts\activate
 py -m pip install -r requirements.txt
 py main.py
 ```
+### 仮想環境を終了する場合
 ```bash
 # 作業が終わったら、以下で仮想環境を終了できます
 deactivate
 ```
-### Windowsで仮想環境を使用する場合(venv)
 
 ## 🔤 フォントについて
 
